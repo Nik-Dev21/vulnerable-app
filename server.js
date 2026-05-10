@@ -13,12 +13,12 @@ app.use(express.urlencoded({ extended: true }));
 const db = new sqlite3.Database('./vibepay.db');
 
 // Hardcoded secrets
-const JWT_SECRET = 'supersecret123';
-const STRIPE_SECRET_KEY = 'sk_test_FAKE1234567890abcdefghijklmnop';
-const AWS_ACCESS_KEY = 'AKIA_FAKE_KEY_DO_NOT_USE';
-const AWS_SECRET_KEY = 'fake_aws_secret_key_1234567890abcdef';
-const DATABASE_PASSWORD = 'admin123!';
-const SENDGRID_API_KEY = 'SG.FAKE_KEY_FOR_TESTING_1234567890';
+const JWT_SECRET = process.env.JWT_SECRET;
+const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
+const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+const AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+const DATABASE_PASSWORD = process.env.DATABASE_PASSWORD;
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 
 // CORS - allow everything
 app.use((req, res, next) => {
